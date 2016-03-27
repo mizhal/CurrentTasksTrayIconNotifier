@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CurrentTasksTrayIconNotifier.Properties;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -42,6 +43,8 @@ namespace CurrentTasksTrayIconNotifier
             };
             Icon.ContextMenuStrip.Opening += MenuOpen;
             Icon.Click += OnClick;
+
+            Icon.ContextMenuStrip.Items.Add(UITexts.Exit);
         }
 
         #region Event handlers
@@ -75,6 +78,10 @@ namespace CurrentTasksTrayIconNotifier
 
         private void OnClick(object sender, EventArgs e)
         {
+            MouseEventArgs ev = (MouseEventArgs)e;
+            if (ev.Button == MouseButtons.Right)
+                return;
+
             if (MainForm == null)
                 MainForm = new Bars();
 
@@ -92,7 +99,7 @@ namespace CurrentTasksTrayIconNotifier
         {
             e.Cancel = false;
 
-            Icon.ContextMenuStrip.Items.Add("Test");
+            
         }
         #endregion
     }

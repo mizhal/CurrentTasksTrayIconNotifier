@@ -75,6 +75,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runner.cs" />
+    <Compile Include="UITexts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UITexts.resx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Bars.resx">
       <DependentUpon>Bars.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +92,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UITexts.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UITexts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
