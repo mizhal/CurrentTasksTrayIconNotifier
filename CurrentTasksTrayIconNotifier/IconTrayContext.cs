@@ -14,7 +14,7 @@ namespace CurrentTasksTrayIconNotifier
         public IconTrayContext()
         {
             InitializeContext();
-            Backend = new CurrentTasksBackend(Icon);
+            Backend = new CurrentTasksBackend();
             var watchdog_process = new CurrentTasksWatchdog(Backend);
 
             watchdog_process.UpdateProgressEvent += UpdateUI;

@@ -9,13 +9,10 @@ namespace CurrentTasksTrayIconNotifier
 {
     internal class CurrentTasksBackend
     {
-        private NotifyIcon Icon { get; set; }
         private IList<CurrentTask> Tasks { get; set; }
 
-        public CurrentTasksBackend(NotifyIcon icon)
-        {
-            this.Icon = icon;
-
+        public CurrentTasksBackend()
+        { 
             Tasks = Builder<CurrentTask>.CreateListOfSize(10)
                 .All()
                     .With(x => x.Id = Guid.NewGuid().ToString())
