@@ -46,7 +46,7 @@ namespace CurrentTasksTrayIconNotifier
 
         public IEnumerable<CurrentTask> GetTasks()
         {
-            return Tasks;
+            return Tasks.OrderBy(x => x.Order);
         }
 
         public CurrentTask GetById(string id)
