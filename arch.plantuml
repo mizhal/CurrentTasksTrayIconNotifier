@@ -1,0 +1,43 @@
+@startuml
+left to right direction
+
+	class IconTrayContext <<Controller>> {
+
+	}
+
+	class CurrentTasksBackend <<Repository>> {
+
+	}
+
+	class Icon {
+
+	}
+
+	class Bars <<View>> {
+
+	}
+
+	class CurrentTask <<Model>> {
+
+	}
+
+	class NotificationManager <<Singleton>> {
+		+ {static} getInstance(): NotificationManager
+	}
+
+	class CurrentTasksWatchdog <<Controller>> {
+
+	}
+
+	IconTrayContext *--> CurrentTasksBackend	
+	IconTrayContext *--> Icon
+	IconTrayContext *--> CurrentTasksWatchdog
+	CurrentTasksWatchdog --> CurrentTasksBackend
+	IconTrayContext --> Bars
+
+	CurrentTasksWatchdog ...> IconTrayContext: update-events
+	IconTrayContext ...> Bars: update-events
+
+	CurrentTasksBackend *--> "*" CurrentTask
+
+@enduml

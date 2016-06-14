@@ -1,0 +1,11 @@
+@startuml
+
+CurrentTasksWatchdog -> CurrentTasksBackend: getTasks()
+CurrentTasksWatchdog <-- CurrentTasksBackend: tasks
+CurrentTasksWatchdog -> CurrentTask: inc(random)
+CurrentTasksWatchdog -> IconTrayContext: update-progress
+IconTrayContext -> Bars: update-progress
+Bars -> CurrentTask: get .Progress
+CurrentTask --> Bars
+
+@enduml
